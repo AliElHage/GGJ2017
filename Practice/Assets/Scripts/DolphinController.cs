@@ -9,6 +9,7 @@ public class DolphinController : MonoBehaviour
 	private Rigidbody2D rig;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+	public float hSpeed;
 
     // Use this for initialization
     void Start()
@@ -21,14 +22,16 @@ public class DolphinController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
 		float hAxis = Input.GetAxis("Horizontal");
 		float vAxis = Input.GetAxis("Vertical");
 
-		Vector3 movement = new Vector2(0, vAxis) * speed * Time.deltaTime;
+		Vector3 movement = new Vector2(hAxis, vAxis) * speed * Time.deltaTime;
 		rig.MovePosition(transform.position + movement);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+		hSpeed = movement.x;
+
+		if (Input.GetKeyDown(KeyCode.Space))
         {
             Fire();
         }
