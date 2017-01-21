@@ -47,7 +47,13 @@ public class DolphinController : MonoBehaviour
             bulletSpawn.rotation);
 
         // Add velocity to the bullet
-        bullet.GetComponent<Rigidbody>().velocity = new Vector3(5F, 0, 0);
+        //bullet.GetComponent<Rigidbody>().velocity = new Vector3(5F, 0, 0);
+        //bullet.GetComponent<Rigidbody>().velocity = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
+        sp.z = 0;
+        Vector3 dir = (Input.mousePosition - sp).normalized;
+        bullet.GetComponent<Rigidbody>().AddForce(dir * 100);
 
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);

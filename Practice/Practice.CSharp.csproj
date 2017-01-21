@@ -66,6 +66,9 @@
     <Compile Include="Assets\Scripts\AnimatedProjector.cs" />
     <Compile Include="Assets\Scripts\Colltest.cs" />
     <Compile Include="Assets\Scripts\DolphinController.cs" />
+    <Compile Include="Assets\Scripts\FillScreen.cs" />
+    <Compile Include="Assets\Scripts\ProjectorRotater.cs" />
+    <Compile Include="Assets\Scripts\SpriteSheetNG.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\Underwater.cs" />
   </ItemGroup>
