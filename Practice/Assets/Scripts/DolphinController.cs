@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DolphinController : MonoBehaviour {
+public class DolphinController : MonoBehaviour
+{
 
-    public float speedX, forceY;
-    public Rigidbody2D playerRigidbody;
-
-    public CapsuleCollider2D playerCollider;
-
+	public float speed = 10;
+	private Rigidbody2D rig;
 
 	// Use this for initialization
-	void Start () {
-        if (gameObject.GetComponent<CapsuleCollider2D>())
-            playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
-        
-        if (gameObject.GetComponent<Rigidbody2D>())
-            playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
-    }
+	void Start()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-		forceY = Input.GetAxis("Vertical");
-		
-        playerRigidbody.AddForce(new Vector2(0, forceY));
-    }
+		rig = GetComponent<Rigidbody2D>();
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+		float hAxis = Input.GetAxis("Horizontal");
+		float vAxis = Input.GetAxis("Vertical");
+
+		Vector3 movement = new Vector2(0, vAxis) * speed * Time.deltaTime;
+		rig.MovePosition(transform.position + movement);
+
+	}
 }
