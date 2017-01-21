@@ -30,7 +30,7 @@ public class AnimateTiledTexture : MonoBehaviour
 
 	public void ChangeAnimation(int animationIndex, bool repeat)
 	{
-		_index = 0;
+		_index = _columns;
 		_isPlaying = true;
 		ChangeMaterial(animations[animationIndex]);
 
@@ -43,7 +43,9 @@ public class AnimateTiledTexture : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Q))
 			ChangeAnimation(0, true);
 		else if (Input.GetKeyDown(KeyCode.E))
-			ChangeAnimation(1, true);
+			ChangeAnimation(1, false);
+
+		
 	}
 
 	// Use this function to register your callback function with this script
@@ -172,6 +174,8 @@ public class AnimateTiledTexture : MonoBehaviour
 
 		while (true)
 		{
+			print("Check against " + checkAgainst);
+			print("index " + _index);
 			// If we are at the last frame, we need to either loop or break out of the loop
 			if (_index >= checkAgainst)
 			{
@@ -195,7 +199,7 @@ public class AnimateTiledTexture : MonoBehaviour
 						// Break out of the loop, we are finished
 						yield break;*/
 						ChangeAnimation(0, true);
-						
+						checkAgainst = (_rows * _columns);
 					}
 					else
 						checkAgainst = _columns;    // We need to loop through one more row

@@ -19,7 +19,6 @@ public class AnimatedProjector : MonoBehaviour {
 
 	void NextFrame()
 	{
-		print("wew lad");
 		projector.material.SetTexture("_ShadowTex", frames[frameIndex]);
 		frameIndex = (frameIndex + 1) % frames.Length;
 	}
