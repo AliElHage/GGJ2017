@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimatedProjector.cs" />
+    <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\Colltest.cs" />
     <Compile Include="Assets\Scripts\DolphinController.cs" />
     <Compile Include="Assets\Scripts\FillScreen.cs" />

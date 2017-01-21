@@ -6,7 +6,7 @@ public class DolphinController : MonoBehaviour
 {
 
 	public float speed = 10;
-	private Rigidbody2D rig;
+	private Rigidbody rig;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 	public float hSpeed;
@@ -15,7 +15,7 @@ public class DolphinController : MonoBehaviour
     void Start()
 	{
 
-		rig = GetComponent<Rigidbody2D>();
+		rig = GetComponent<Rigidbody>();
 
 	}
 
@@ -58,4 +58,5 @@ public class DolphinController : MonoBehaviour
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);
     }
+
 }
