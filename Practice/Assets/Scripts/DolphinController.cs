@@ -15,7 +15,7 @@ public class DolphinController : MonoBehaviour {
         if (gameObject.GetComponent<CapsuleCollider2D>())
             playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         
-        else if (gameObject.GetComponent<Rigidbody2D>())
+        if (gameObject.GetComponent<Rigidbody2D>())
             playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
